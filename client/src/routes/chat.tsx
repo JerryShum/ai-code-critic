@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import FeatureCard from '@/components/ui/featureCard';
 import StepCard from '@/components/ui/stepCard';
-import { createFileRoute } from '@tanstack/react-router';
+import { createFileRoute, Link } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/chat')({
    component: Chat,
@@ -68,7 +68,7 @@ function Chat() {
             </div>
 
             <Button className="bg-blue-600 rounded-full p-6 text-lg hover:bg-blue-700">
-               Get Started
+               <Link to="/ai">Get Started</Link>
             </Button>
          </section>
 
@@ -88,7 +88,7 @@ function Chat() {
          </section>
 
          <section className="mb-20">
-            <h2 className="text-3xl font-bold text-center mb-8">
+            <h2 className="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-blue-400 to-indigo-800 text-transparent bg-clip-text">
                How It Works
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -104,12 +104,17 @@ function Chat() {
          </section>
 
          <footer className="text-center">
-            <h2 className="text-3xl font-bold mb-4">Get Started in Seconds!</h2>
+            <h2 className="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-blue-400 to-indigo-800 text-transparent bg-clip-text">
+               Get Started in Seconds!
+            </h2>
             <p className="text-xl mb-8">
                Ready to level up your development game? Start using the Simple
                Code Critic AI today. Just paste your first snippet and see the
                difference. No sign-up required.
             </p>
+            <Button className="bg-blue-600 rounded-full p-6 text-lg hover:bg-blue-700">
+               <Link to="/ai">Get Started</Link>
+            </Button>
          </footer>
       </div>
    );
