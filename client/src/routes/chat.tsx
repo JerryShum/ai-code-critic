@@ -1,10 +1,55 @@
 import { Button } from '@/components/ui/button';
 import FeatureCard from '@/components/ui/featureCard';
+import StepCard from '@/components/ui/stepCard';
 import { createFileRoute } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/chat')({
    component: Chat,
 });
+
+const steps = [
+   {
+      title: 'Paste',
+      description:
+         'Drop your Python, JavaScript, Java, or other supported code snippet into our editor.',
+      step: 1,
+   },
+   {
+      title: 'Analyze Instantly',
+      description:
+         'Our custom AI model processes your input against millions of lines of expertly-vetted code.',
+      step: 2,
+   },
+   {
+      title: 'Receive Your Critique',
+      description:
+         'Get a clear, categorized list of suggestions, along with explanations of why the change is recommended.',
+      step: 3,
+   },
+];
+
+const features = [
+   {
+      title: 'Style & Readability',
+      description:
+         'Get feedback on adherence to best practices, naming conventions, and overall code clarity. Stop fighting about semicolons and start discussing architecture.',
+   },
+   {
+      title: 'Efficiency & Performance',
+      description:
+         'Pinpoint potential bottlenecks and receive suggestions for optimization, ensuring your application runs smoothly under any load.',
+   },
+   {
+      title: 'Best Practice Adherence',
+      description:
+         'Identify common anti-patterns, security vulnerabilities, and logical errors before they make it to production.',
+   },
+   {
+      title: 'Instant Feedback Loop',
+      description:
+         'Paste your code and receive actionable, context-aware critiques in seconds. No more waiting for a teammate to wake up!',
+   },
+];
 
 function Chat() {
    return (
@@ -32,45 +77,29 @@ function Chat() {
                What We Offer
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-               <FeatureCard
-                  title="Style & Readability"
-                  description="Get feedback on adherence to best practices, naming conventions, and overall code clarity. Stop fighting about semicolons and start discussing architecture."
-               />
-               <FeatureCard
-                  title="Efficiency & Performance"
-                  description="Pinpoint potential bottlenecks and receive suggestions for optimization, ensuring your application runs smoothly under any load."
-               />
-               <FeatureCard
-                  title="Best Practice Adherence"
-                  description="Identify common anti-patterns, security vulnerabilities, and logical errors before they make it to production."
-               />
-               <FeatureCard
-                  title="Instant Feedback Loop"
-                  description="Paste your code and receive actionable, context-aware critiques in seconds. No more waiting for a teammate to wake up!"
-               />
+               {features.map((feature) => (
+                  <FeatureCard
+                     key={feature.title}
+                     title={feature.title}
+                     description={feature.description}
+                  />
+               ))}
             </div>
          </section>
 
-         <section className="mb-20 text-center">
-            <h2 className="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-blue-400 to-indigo-800 text-transparent bg-clip-text">
+         <section className="mb-20">
+            <h2 className="text-3xl font-bold text-center mb-8">
                How It Works
             </h2>
-            <div className="flex flex-col md:flex-row justify-center items-center gap-8">
-               <p className="max-w-2xl">
-                  <span className="font-bold">1. Paste Your Code:</span> Drop
-                  your Python, JavaScript, Java, or other supported code snippet
-                  into our editor.
-               </p>
-               <p className="max-w-2xl">
-                  <span className="font-bold">2. Analyze Instantly:</span> Our
-                  custom AI model processes your input against millions of lines
-                  of expertly-vetted code.
-               </p>
-               <p className="max-w-2xl">
-                  <span className="font-bold">3. Receive Your Critique:</span>{' '}
-                  Get a clear, categorized list of suggestions, along with
-                  explanations of why the change is recommended.
-               </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+               {steps.map((step) => (
+                  <StepCard
+                     key={step.step}
+                     title={step.title}
+                     description={step.description}
+                     step={step.step}
+                  />
+               ))}
             </div>
          </section>
 
