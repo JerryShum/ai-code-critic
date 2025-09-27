@@ -5,7 +5,7 @@ import github from '@/assets/github-mark.svg';
 
 export default function Header() {
    return (
-      <div className="fixed top-0 left-0 right-0 w-full p-4 px-10 flex justify-between items-center ">
+      <div className=" top-0 left-0 right-0 w-full p-4 px-10 flex justify-between items-center ">
          <div>
             <h1 className="text-2xl font-bold">ai_code_critic</h1>
          </div>
@@ -24,6 +24,7 @@ export default function Header() {
                href="https://github.com/JerryShum/ai-code-critic"
                target="_blank"
                rel="noopener"
+               className="pl-1 cursor-pointer"
             >
                <img
                   src={github}
